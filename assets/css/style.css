@@ -613,11 +613,12 @@ section {
 }
 
 .why-us .video-box {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  min-height: 400px;
-  position: relative;
+  padding-top: 180px;
+  padding-right: 100px;
+}
+
+.why-us .video-box video {
+  max-width: 100%;
 }
 
 .why-us .accordion-list {
@@ -777,6 +778,10 @@ section {
   }
   .why-us .accordion-list {
     padding-bottom: 30px;
+  }
+  .why-us .video-box {
+    padding-top: 0px;
+    padding-right: 0px;
   }
 }
 
@@ -1274,6 +1279,12 @@ section {
   color: #bababa;
   font-size: 16px;
   font-weight: 300;
+}
+
+.pricing .box img {
+  max-width: 150px;
+  display: block;
+  margin: auto;
 }
 
 .pricing .box ul {
