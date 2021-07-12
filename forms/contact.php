@@ -1,41 +1,62 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require '/PHPMailer/src/Exception.php';
+require '/PHPMailer/src/PHPMailer.php';
+require '/PHPMailer/src/SMTP.php';
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+$name= validate_input($_POST['name']);
+$company= validate_input($_POST['company']);
+$email= validate_input($_POST['email']);
+$phone= validate_input($_POST['phone']);
+$cash= validate_input($_POST['cash']);
+$netWorth= validate_input($_POST['networth']);
+$city= validate_input($_POST['city']);
+$interestedDev= validate_input($_POST['interestedInDeveloping']);
+$comment= validate_input($_POST['comment']);
+$lang= validate_input($_POST['lang']);
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+$mail = new PHPMailer(true);
+try {
+    //Server settings
+    //$mail->SMTPDebug = 2;                                
+    $mail->isSMTP();                                      
+    $mail->Host = 'smtp.gmail.com';                  
+    $mail->SMTPAuth = true;                              
+    $mail->Username = '';            
+    $mail->Password = '';                        
+    $mail->SMTPSecure = 'TLS';                         
+    $mail->Port = 465;                                
+    //Recipients
+    $mail->setFrom('', $name);          
+    $mail->addAddress('', 'Mehdi'); 
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+    //Content
+    $body.="<p><b>Full name:</b> ".$name."</p> <br>";
+    $body.="<p><b>Company name:</b> ".$company."</p> <br>";
+    $body.="<p><b>Email:</b> ".$email."</p> <br>";
+    $body.="<p><b>Phone number:</b> ".$phone."</p> <br>";
+    $body.="<p><b>Cash available for investment:</b> ".$cash."</p> <br>";
+    $body.="<p><b>Net Worth:</b> ".$netWorth."</p> <br>";
+    $body.="<p><b>City:</b> ".$city."</p> <br>";
+    $body.="<p><b>Interested in developing:</b> ".$interestedDev."</p> <br>";
+    $body.="<p><b>Comments:</b> ".$comment."</p> <br>";
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+    $mail->isHTML(true);                                  
+    $mail->Subject = 'Quick Car Wash application form';
+    $mail->Body = $body;
+    $mail->send();
+    echo 'OK';
+} catch (Exception $e) {
+    echo 'Message could not be sent.';
+}
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
 
-  echo $contact->send();
+function validate_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+        
 ?>
