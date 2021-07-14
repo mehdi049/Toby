@@ -19,36 +19,46 @@ $lang= validate_input($_POST['lang']);
 
 $mail = new PHPMailer(true);
 try {
-    //Server settings
-    //$mail->SMTPDebug = 2;                                
+              
+      //Content
+      $body.="<p><b>Full name:</b> ".$name."</p> <br>";
+      $body.="<p><b>Company name:</b> ".$company."</p> <br>";
+      $body.="<p><b>Email:</b> ".$email."</p> <br>";
+      $body.="<p><b>Phone number:</b> ".$phone."</p> <br>";
+      $body.="<p><b>Cash available for investment:</b> ".$cash."</p> <br>";
+      $body.="<p><b>Net Worth:</b> ".$netWorth."</p> <br>";
+      $body.="<p><b>Investment timeframe:</b> ".$investTimeframe."</p> <br>";
+      $body.="<p><b>City:</b> ".$city."</p> <br>";
+      $body.="<p><b>Interested in developing:</b> ".$interestedDev."</p> <br>";
+      $body.="<p><b>Comments:</b> ".$comment."</p> <br>";
+
+      $subject= 'Inquiry from QCW website';
+
+    /*  
     $mail->isSMTP();                                      
     $mail->Host = 'smtp.gmail.com';                  
     $mail->SMTPAuth = true;                              
     $mail->Username = '';            
     $mail->Password = '';                        
     $mail->SMTPSecure = 'TLS';                         
-    $mail->Port = 465;                                
-    //Recipients
-    $mail->setFrom('', $name);          
-    $mail->addAddress('', 'Mehdi'); 
-
-    //Content
-    $body.="<p><b>Full name:</b> ".$name."</p> <br>";
-    $body.="<p><b>Company name:</b> ".$company."</p> <br>";
-    $body.="<p><b>Email:</b> ".$email."</p> <br>";
-    $body.="<p><b>Phone number:</b> ".$phone."</p> <br>";
-    $body.="<p><b>Cash available for investment:</b> ".$cash."</p> <br>";
-    $body.="<p><b>Net Worth:</b> ".$netWorth."</p> <br>";
-    $body.="<p><b>Investment timeframe:</b> ".$investTimeframe."</p> <br>";
-    $body.="<p><b>City:</b> ".$city."</p> <br>";
-    $body.="<p><b>Interested in developing:</b> ".$interestedDev."</p> <br>";
-    $body.="<p><b>Comments:</b> ".$comment."</p> <br>";
-
+    $mail->Port = 465;            
+    $mail->setFrom($email, $name);          
+    $mail->addAddress('', 'name'); 
     $mail->isHTML(true);                                  
-    $mail->Subject = 'Quick Car Wash application form';
+    $mail->Subject = $subject;
     $mail->Body = $body;
     $mail->send();
-    echo 'OK';
+    */
+
+
+$to = 'info@quikcarwash.com';
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .= "From: <".$email.">" . "\r\n";
+
+mail($to, $subject, $body, implode("\r\n", $headers));
+echo 'OK';
+
 } catch (Exception $e) {
     if($lang=="en")
      echo 'The message could not be sent.';

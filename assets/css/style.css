@@ -191,6 +191,10 @@ h6 {
   min-width: 200px;
 }
 
+.navbar .dropdown > a:hover {
+  cursor: default;
+}
+
 .navbar .dropdown ul a {
   padding: 10px 20px;
   font-size: 15px;
