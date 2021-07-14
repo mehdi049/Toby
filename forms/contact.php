@@ -11,6 +11,7 @@ $email= validate_input($_POST['email']);
 $phone= validate_input($_POST['phone']);
 $cash= validate_input($_POST['cash']);
 $netWorth= validate_input($_POST['networth']);
+$investTimeframe= validate_input($_POST['investTimeframe']);
 $city= validate_input($_POST['city']);
 $interestedDev= validate_input($_POST['interestedInDeveloping']);
 $comment= validate_input($_POST['comment']);
@@ -38,6 +39,7 @@ try {
     $body.="<p><b>Phone number:</b> ".$phone."</p> <br>";
     $body.="<p><b>Cash available for investment:</b> ".$cash."</p> <br>";
     $body.="<p><b>Net Worth:</b> ".$netWorth."</p> <br>";
+    $body.="<p><b>Investment timeframe:</b> ".$investTimeframe."</p> <br>";
     $body.="<p><b>City:</b> ".$city."</p> <br>";
     $body.="<p><b>Interested in developing:</b> ".$interestedDev."</p> <br>";
     $body.="<p><b>Comments:</b> ".$comment."</p> <br>";
@@ -48,7 +50,9 @@ try {
     $mail->send();
     echo 'OK';
 } catch (Exception $e) {
-    echo 'Message could not be sent.';
+    if($lang=="en")
+     echo 'The message could not be sent.';
+      else echo "ไม่สามารถส่งข้อความได้";
 }
 
 
