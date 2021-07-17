@@ -32,7 +32,7 @@ try {
       $body.="<p><b>Interested in developing:</b> ".$interestedDev."</p> <br>";
       $body.="<p><b>Comments:</b> ".$comment."</p> <br>";
 
-      $subject= 'Inquiry from QCW website';
+      $subject= 'Quik Car Wash franchise';
 
     /*  
     $mail->isSMTP();                                      
