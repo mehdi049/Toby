@@ -124,6 +124,10 @@ h6 {
 }
 
 @media screen and (max-width: 768px) {
+  #header {
+    background: url("/assets/img/mobile-menu-bar-bg.jpg");
+    background-size: cover;
+  }
   #header .logo img {
     max-height: 60px;
   }
@@ -262,12 +266,24 @@ h6 {
   color: #fff;
 }
 
+@media (min-width: 991px) and (max-width: 1200px) {
+  .navbar a {
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 991px) {
   .mobile-nav-toggle {
     display: block;
   }
   .navbar ul {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-nav-toggle {
+    color: #fff;
   }
 }
 
@@ -423,6 +439,11 @@ h6 {
 }
 
 @media (max-width: 768px) {
+  #hero {
+    background: url("../img/mobile-home-bg.jpg");
+    background-size: cover;
+  }
+
   #hero h1 {
     font-size: 28px;
     line-height: 36px;
