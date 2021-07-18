@@ -123,6 +123,12 @@ h6 {
   }
 }
 
+@media screen and (max-width: 768px) {
+  #header .logo img {
+    max-height: 60px;
+  }
+}
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -442,6 +448,10 @@ section {
   background-color: rgb(234 234 234);
 }
 
+.section-bg3 {
+  background-color: rgb(234 234 234);
+}
+
 .section-title {
   text-align: center;
   padding-bottom: 40px;
@@ -459,6 +469,16 @@ section {
 .section-title p {
   margin-bottom: 0;
   color: #aeaeae;
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    padding: 25px 0;
+  }
+
+  .section-title {
+    padding-bottom: 20px;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -589,6 +609,13 @@ section {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .featured {
+    padding: 0px 0 20px 0;
+    background: white;
   }
 }
 
@@ -1155,7 +1182,7 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Contact
+# Apply now / Contact
 --------------------------------------------------------------*/
 .contact .info {
   width: 100%;
