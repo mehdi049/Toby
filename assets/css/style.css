@@ -620,7 +620,7 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Why Us
+# Requirement
 --------------------------------------------------------------*/
 .why-us {
   background: whitesmoke;
@@ -648,12 +648,8 @@ section {
 }
 
 .why-us .video-box {
-  padding-top: 180px;
+  padding-top: 150px;
   padding-right: 100px;
-}
-
-.why-us .video-box video {
-  max-width: 100%;
 }
 
 .why-us .accordion-list {
@@ -1406,7 +1402,7 @@ section {
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.65);
   z-index: 1;
 }
 
