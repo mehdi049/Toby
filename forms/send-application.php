@@ -5,18 +5,34 @@ require '/PHPMailer/src/Exception.php';
 require '/PHPMailer/src/PHPMailer.php';
 require '/PHPMailer/src/SMTP.php';
 
+$name= validate_input($_POST['name']);
+$company= validate_input($_POST['company']);
 $email= validate_input($_POST['email']);
-$message= validate_input($_POST['message']);
+$phone= validate_input($_POST['phone']);
+$cash= validate_input($_POST['cash']);
+$netWorth= validate_input($_POST['networth']);
+$investTimeframe= validate_input($_POST['investTimeframe']);
+$city= validate_input($_POST['city']);
+$interestedDev= validate_input($_POST['interestedInDeveloping']);
+$comment= validate_input($_POST['comment']);
 $lang= validate_input($_POST['lang']);
 
 $mail = new PHPMailer(true);
 try {
               
       //Content
+      $body.="<p><b>Full name:</b> ".$name."</p> <br>";
+      $body.="<p><b>Company name:</b> ".$company."</p> <br>";
       $body.="<p><b>Email:</b> ".$email."</p> <br>";
-      $body.="<p><b>Message:</b> ".$message."</p> <br>";
+      $body.="<p><b>Phone number:</b> ".$phone."</p> <br>";
+      $body.="<p><b>Cash available for investment:</b> ".$cash."</p> <br>";
+      $body.="<p><b>Net Worth:</b> ".$netWorth."</p> <br>";
+      $body.="<p><b>Investment timeframe:</b> ".$investTimeframe."</p> <br>";
+      $body.="<p><b>City:</b> ".$city."</p> <br>";
+      $body.="<p><b>Interested in developing:</b> ".$interestedDev."</p> <br>";
+      $body.="<p><b>Comments:</b> ".$comment."</p> <br>";
 
-      $subject= 'Inquiry for Quik Car Wash franchise';
+      $subject= 'Quik Car Wash franchise';
 
     /*  
     $mail->isSMTP();                                      

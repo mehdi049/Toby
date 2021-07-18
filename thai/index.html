@@ -1567,10 +1567,10 @@
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
               <form
-                action="../forms/contact.php"
+                action="../forms/send-application.php"
                 method="post"
                 role="form"
-                class="php-email-form"
+                class="send-application-form"
                 data-aos="fade-left"
               >
                 <div class="row">
@@ -1705,14 +1705,13 @@
                       required
                     ></textarea>
                     <input type="hidden" name="lang" value="thai" />
-                    <br />
                   </div>
                 </div>
                 <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">
-                    ข้อความของคุณถูกส่งแล้ว. ขอขอบคุณ!
+                  <div class="application-loading">Loading</div>
+                  <div class="application-error-message"></div>
+                  <div class="application-sent-message">
+                    ส่งใบสมัครของคุณแล้ว ขอขอบคุณ!
                   </div>
                 </div>
                 <div class="text-center">
@@ -1736,27 +1735,28 @@
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
               <form
-                action="forms/contact.php?type=contact"
+                action="forms/contact.php"
                 method="post"
                 role="form"
-                class="php-email-form"
+                class="contact-form"
                 data-aos="fade-left"
               >
                 <div class="row">
                   <div class="col-md-12 form-group">
-                    <label for="email-contact" class="form-label"
+                    <label for="contact-email" class="form-label"
                       >อีเมลล์</label
                     >
                     <input
                       type="email"
-                      name="email-contact"
+                      name="email"
                       class="form-control"
-                      id="email-contact"
+                      id="contact-email"
                       placeholder="อีเมลล์"
                       required
                     />
                   </div>
                 </div>
+                <br />
                 <div class="row">
                   <div class="col-12 form-group">
                     <label for="contact-message" class="form-label"
@@ -1764,19 +1764,19 @@
                     >
                     <textarea
                       class="form-control"
-                      name="contact-message"
+                      name="message"
                       rows="5"
+                      id="contact-message"
                       placeholder="ข้อความที่ต้องการติดต่อ"
                       required
                     ></textarea>
                     <input type="hidden" name="lang" value="thai" />
-                    <br />
                   </div>
                 </div>
                 <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">
+                  <div class="contact-loading">Loading</div>
+                  <div class="contact-error-message"></div>
+                  <div class="contact-sent-message">
                     Your message has been sent. Thank you!
                   </div>
                 </div>
