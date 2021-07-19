@@ -1,9 +1,4 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-require '/PHPMailer/src/Exception.php';
-require '/PHPMailer/src/PHPMailer.php';
-require '/PHPMailer/src/SMTP.php';
 
 $name= validate_input($_POST['name']);
 $company= validate_input($_POST['company']);
@@ -17,46 +12,28 @@ $interestedDev= validate_input($_POST['interestedInDeveloping']);
 $comment= validate_input($_POST['comment']);
 $lang= validate_input($_POST['lang']);
 
-$mail = new PHPMailer(true);
+
 try {
               
       //Content
-      $body.="<p><b>Full name:</b> ".$name."</p> <br>";
-      $body.="<p><b>Company name:</b> ".$company."</p> <br>";
-      $body.="<p><b>Email:</b> ".$email."</p> <br>";
-      $body.="<p><b>Phone number:</b> ".$phone."</p> <br>";
-      $body.="<p><b>Cash available for investment:</b> ".$cash."</p> <br>";
+      $body.="<p><b>Full name:</b> ".$name."</p>";
+      $body.="<p><b>Company name:</b> ".$company."</p>";
+      $body.="<p><b>Email:</b> ".$email."</p>";
+      $body.="<p><b>Phone number:</b> ".$phone."</p>";
+      $body.="<p><b>Cash available for investment:</b> ".$cash."</p>";
       $body.="<p><b>Net Worth:</b> ".$netWorth."</p> <br>";
-      $body.="<p><b>Investment timeframe:</b> ".$investTimeframe."</p> <br>";
-      $body.="<p><b>City:</b> ".$city."</p> <br>";
-      $body.="<p><b>Interested in developing:</b> ".$interestedDev."</p> <br>";
-      $body.="<p><b>Comments:</b> ".$comment."</p> <br>";
+      $body.="<p><b>Investment timeframe:</b> ".$investTimeframe."</p>";
+      $body.="<p><b>City:</b> ".$city."</p>";
+      $body.="<p><b>Interested in developing:</b> ".$interestedDev."</p>";
+      $body.="<p><b>Comments:</b> ".$comment."</p>";
 
       $subject= 'Quik Car Wash franchise';
 
-    /*  
-    $mail->isSMTP();                                      
-    $mail->Host = 'smtp.gmail.com';                  
-    $mail->SMTPAuth = true;                              
-    $mail->Username = '';            
-    $mail->Password = '';                        
-    $mail->SMTPSecure = 'TLS';                         
-    $mail->Port = 465;            
-    $mail->setFrom($email, $name);          
-    $mail->addAddress('', 'name'); 
-    $mail->isHTML(true);                                  
-    $mail->Subject = $subject;
-    $mail->Body = $body;
-    $mail->send();
-    */
-
-
 $to = 'info@quikcarwash.com';
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From: <".$email.">" . "\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-mail($to, $subject, $body, implode("\r\n", $headers));
+mail($to, $subject, $body, $headers);
 echo 'OK';
 
 } catch (Exception $e) {
