@@ -28,8 +28,8 @@ try {
       $body.="<p><b>Comments:</b> ".$comment."</p>";
 
       $subject= 'Quik Car Wash franchise';
-
-$to = 'info@quikcarwash.com';
+      
+$to = 'quikcarwash@gmail.com';
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
