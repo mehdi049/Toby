@@ -21,7 +21,7 @@ try {
       $body.="<p><b>Email:</b> ".$email."</p>";
       $body.="<p><b>Phone number:</b> ".$phone."</p>";
       $body.="<p><b>Cash available for investment:</b> ".$cash."</p>";
-      $body.="<p><b>Net Worth:</b> ".$netWorth."</p> <br>";
+      $body.="<p><b>Net Worth:</b> ".$netWorth."</p>";
       $body.="<p><b>Investment timeframe:</b> ".$investTimeframe."</p>";
       $body.="<p><b>City:</b> ".$city."</p>";
       $body.="<p><b>Interested in developing:</b> ".$interestedDev."</p>";
