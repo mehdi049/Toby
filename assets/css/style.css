@@ -32,6 +32,11 @@ h6 {
   font-family: "Montserrat", sans-serif;
 }
 
+.invalid-input {
+  border-color: rgb(230 27 27);
+  border-width: 2px;
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -125,7 +130,7 @@ h6 {
 
 @media screen and (max-width: 768px) {
   #header {
-    background: url("/assets/img/mobile-menu-bar-bg.jpg");
+    background: url("http://www.quikcarwash.com/_new/assets/img/mobile-menu-bar-bg.jpg");
     background-size: cover;
   }
   #header .logo img {
