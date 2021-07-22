@@ -88,17 +88,6 @@
     e.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      /* let valid = true;
-      $(".contact-form input,.contact-form textarea").each(function () {
-        $(this).removeClass("invalid-input");
-        let value = $(this).val();
-        if (value.length == 0) {
-          valid = false;
-          $(this).addClass("invalid-input");
-        }
-      });
-
-      if (valid) {*/
       let thisForm = this;
 
       let action = thisForm.getAttribute("action");
@@ -117,7 +106,6 @@
 
       let formData = new FormData(thisForm);
       contact_submit(thisForm, action, formData);
-      //  }
     });
   });
 

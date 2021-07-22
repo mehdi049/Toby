@@ -1,5 +1,7 @@
 <?php
 
+if(isset($_POST['url']) && $_POST['url'] == ''){
+
 $email= validate_input($_POST['email']);
 $message= validate_input($_POST['message']);
 $lang= validate_input($_POST['lang']);
@@ -32,6 +34,12 @@ function validate_input($data) {
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
+}
+
+} else {
+      if($lang=="en")
+     echo 'The message could not be sent.';
+      else echo "ไม่สามารถส่งข้อความได้";
 }
         
 ?>
